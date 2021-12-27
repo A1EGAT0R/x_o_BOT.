@@ -28,14 +28,6 @@ class Game
 	//=========================================================================================================================================================
 	char winner;
 public:
-	class Err
-	{
-	public:
-		Err(int x)
-		{
-			std::cout << "=============================================" <<x << "=============================================" << endl;
-		}
-	};
 	Game();
 	void Move();void Move(bool x); void Move(int pole);
 	void printG();
@@ -48,24 +40,12 @@ int Game::main_b()
 {
 	
 	std::string an; std::string ant;
-	if (moves >= 9)
-	{
-		throw Err(1);
-	}
 	std::string stro(moves, '*');
 	int mas = 0;
 	for (int i = 0; i < 9; i++)
 	{
-		if (i > 8)
-		{
-			throw Err(2);
-		}
 		if (move_c[i] == true)
 		{
-			if (mas >= moves)
-			{
-				throw Err(3);
-			}
 			stro[mas] = i + '0';
 			mas++;
 		}
@@ -147,8 +127,6 @@ int Game::main_b()
 			bool check = false;
 			for (int j = 0; j < moves;j++)
 			{
-				if (j >= moves)
-					throw Err(4);
 				int ch = stro[j] - '0';
 				if (i != ch)
 				{
@@ -413,12 +391,25 @@ void Game::ChangeStats()
 void Game::Move()
 {
 	moves++;
+	bool cont = false;
 	int pole;
-	cin >> pole;
+	while (cont == false)
+	{
+
+
+		cin >> pole;
+		if (cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+			std::cout << "BAD INPUT" << std::endl;
+		}
+		else
+			cont = true;
+	}
 	pole--;
 
-	if (pole >= 9)
-		throw Err(5);
 	if (!move_c[pole])
 	{
 		if (x_o == 1)
@@ -445,8 +436,6 @@ void Game::Move(bool x)
 	cin >> pole;
 	pole--;
 
-	if (pole >= 9)
-		throw Err(11);
 	if (!move_c[pole])
 	{
 		if (x_o == 1)
@@ -469,8 +458,6 @@ void Game::Move(bool x)
 }
 void Game::Move(int pole)
 {
-	if (pole >= 9)
-		throw Err(6);
 	moves++;
 	if (!move_c[pole])
 	{
@@ -498,8 +485,6 @@ void Game::printG()
 	int z = 0;
 	for (int i = 0; i < 3; i++)
 	{
-		if (z >= 9)
-			throw Err(7);
 		std::cout << "|";
 		if (move_c[z])
 			std::cout << move[z];
@@ -507,16 +492,13 @@ void Game::printG()
 			std::cout << " ";
 		z++;
 
-		if (z >= 9)
-			throw Err(8);
 		std::cout << "|";
 		if (move_c[z])
 			std::cout << move[z];
 		else
 			std::cout << " ";
 		z++;
-		if (z >= 9)
-			throw Err(9);
+
 		std::cout << "|";
 		if (move_c[z])
 			std::cout << move[z];
@@ -706,8 +688,6 @@ Game::Game()
 
 	for (int i = 0; i < 9; i++)
 	{
-		if (i >= 9)
-			throw Err(10);
 		move_c[i] = 0;
 		move[i] = '0';
 	}
