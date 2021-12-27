@@ -1,4 +1,1 @@
-﻿  Game.cpp
-D:\GIT_prj\x_o\Пре\Game.cpp(62,54): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\GIT_prj\x_o\Пре\Game.cpp(72,57): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  Пре.vcxproj -> D:\GIT_prj\x_o\x64\Debug\Пре.exe
+﻿  Пре.vcxproj -> D:\GIT_prj\x_o\x64\Debug\Пре.exe
