@@ -1,3 +1,7 @@
-﻿  Пре.cpp
-C:\Users\gleb2\Desktop\Бот\Это можно не трогать\Пре\Пре.cpp(65,19): warning C4101: x: неиспользованная локальная переменная
-  Пре.vcxproj -> C:\Users\gleb2\Desktop\Бот\Это можно не трогать\x64\Debug\Пре.exe
+﻿  Game.cpp
+D:\GIT_prj\x_o\Пре\Game.cpp(82,54): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\GIT_prj\x_o\Пре\Game.cpp(92,57): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  Пре.cpp
+D:\GIT_prj\x_o\Пре\Пре.cpp(14,19): warning C4101: x: неиспользованная локальная переменная
+  Создание кода...
+  Пре.vcxproj -> D:\GIT_prj\x_o\x64\Debug\Пре.exe

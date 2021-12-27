@@ -718,7 +718,7 @@ Game::Game()
 
 		if (GAME())
 		{
-			Move(main_b());
+			Move();
 
 			printG();
 		}
