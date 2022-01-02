@@ -677,14 +677,10 @@ bool Game::GAME()
 }
 Game::Game()
 {
-	char x_o_choose = 'o';
 	x_o = 0;
 	pos[0] = '*'; pos[1] = "**"; pos[2] = "***"; pos[3] = "****"; pos[4] = "*****";pos[5] = "******";pos[6] = "*******";pos[7] = "********";pos[8] = "*********";
 	winner = '0';
 	chan[0] = chan[1] = chan[2] = chan[3]= chan[4]= chan[5]= chan[6]= chan[7]= chan[8] = '0';
-
-	std::cout << "Select: 'x' or 'o'";
-	std::cin >> x_o_choose;
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -696,11 +692,9 @@ Game::Game()
 
 	
 
-	if (x_o_choose == 'x')
-	{
 		while (GAME())
 		{
-			Move();
+			Move(main_b());
 
 			printG();
 
@@ -712,24 +706,7 @@ Game::Game()
 				printG();
 			}
 		}
-	}
-	else
-	{
-		while (GAME())
-		{
-			Move(main_b());
 
-			printG();
-
-
-			if (GAME())
-			{
-				Move();
-
-				printG();
-			}
-		}
-	}
 	ChangeStats();
 }
 
